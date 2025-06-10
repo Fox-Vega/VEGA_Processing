@@ -53,11 +53,13 @@ void draw() {
     rotate(sensorValues[0] * PI / 180);
     stroke(255, 0, 0);
     strokeWeight(5);
-    line(0, 0, 55, 0); //向いている方向
+    line(0, 0, 55, 0); //向いている方向（赤い線）
     popMatrix();
-
-    fill(255, 128, 0);
-    ellipse(sensorValues[3], sensorValues[4], 31, 31); //ボール
+    
+    if (sensorValues[3] != 0 || sensorValues[4] != 0) {
+      fill(255, 128, 0);
+      ellipse(sensorValues[1] - sensorValues[3], sensorValues[2] - sensorValues[4], 31, 31); //ボール
+    }
   }
 }
 
