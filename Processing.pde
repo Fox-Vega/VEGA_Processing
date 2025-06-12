@@ -59,7 +59,7 @@ void draw() {
     rotate(sensorValues[6] * PI / 180);
     stroke(0, 255, 0);
     strokeWeight(5);
-    line(0, 0, 55, 0); //進行方向
+    line(0, 0, sensorValues[5], 0); //進行方向
     popMatrix();
     
     if (sensorValues[4] != 0 || sensorValues[5] != 0) {
