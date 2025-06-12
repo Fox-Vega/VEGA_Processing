@@ -55,11 +55,10 @@ void draw() {
     strokeWeight(5);
     line(0, 0, 55, 0); //向いている方向（赤い線）
     if (sensorValues[0] == 1) {
-        translate(sensorValues[2], sensorValues[3]);
         rotate(sensorValues[6] * PI / 180);
         stroke(0, 255, 0);
         strokeWeight(5);
-        line(0, 0, sensorValues[5], 0); //進行方向
+        line(0, 0, sensorValues[7], 0); //進行方向
     }
     popMatrix();
     
