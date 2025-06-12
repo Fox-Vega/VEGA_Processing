@@ -46,19 +46,25 @@ void draw() {
   if (sensorValues != null) {
     noStroke();
     fill(255);
-    ellipse(sensorValues[1], sensorValues[2], 110, 110); //機体
+    ellipse(sensorValues[2], sensorValues[3], 110, 110); //機体
     
     pushMatrix();
-    translate(sensorValues[1], sensorValues[2]);
-    rotate(sensorValues[0] * PI / 180);
+    translate(sensorValues[2], sensorValues[3]);
+    rotate(sensorValues[1] * PI / 180);
     stroke(255, 0, 0);
     strokeWeight(5);
     line(0, 0, 55, 0); //向いている方向（赤い線）
+    
+    translate(sensorValues[2], sensorValues[3]);
+    rotate(sensorValues[6] * PI / 180);
+    stroke(0, 255, 0);
+    strokeWeight(5);
+    line(0, 0, 55, 0); //進行方向
     popMatrix();
     
-    if (sensorValues[3] != 0 || sensorValues[4] != 0) {
+    if (sensorValues[4] != 0 || sensorValues[5] != 0) {
       fill(255, 128, 0);
-      ellipse(sensorValues[1] - sensorValues[3], sensorValues[2] - sensorValues[4], 31, 31); //ボール
+      ellipse(sensorValues[2] - sensorValues[4], sensorValues[3] - sensorValues[5], 31, 31); //ボール
     }
   }
 }
