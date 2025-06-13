@@ -10,6 +10,8 @@ void setup() {
   background(0);
   frameRate(30);
 
+  ball_offset = 0.5;
+
   // シリアルポートを指定
   port = new Serial(this, arduinoPort, 9600);
   delay(100);  
@@ -63,8 +65,9 @@ void draw() {
     popMatrix();
     
     if (sensorValues[4] != 0 || sensorValues[5] != 0) {
+      noStroke();
       fill(255, 128, 0);
-      ellipse(sensorValues[2] - sensorValues[4], sensorValues[3] - sensorValues[5], 31, 31); //ボール
+      ellipse(sensorValues[2] - (sensorValues[4] * ball_offset), sensorValues[3] - (sensorValues[5] * ball_offset), 31, 31); //ボール
     }
   }
 }
